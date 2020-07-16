@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	RED.nodes.registerType("musiccast-source", {
+		category: "MusicCast",
+		color: '#57D9A0',
+		defaults: {
+			device: {value: "", type: "musiccast-device", required: true},
+			name: {value: ""}
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "music.png",
+		label: function () {
+			return this.name || "Set Audio Source";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="musiccast-source">
+    <div class="form-row">
+        <label for="node-input-device"><i class="icon-globe"></i> MusicCast Device</label>
+        <input type="text" id="node-input-device">
+    </div>
+</script>
+
+
+<script type="text/x-red" data-help-name="musiccast-source">
+    <p>
+        Sets input to as specified in <code>msg.payload</code>. Can have the following values:
+        <li>net_radio</li>
+        <li>napster</li>
+        <li>juke</li>
+        <li>qobuz</li>
+        <li>tidal</li>
+        <li>deezer</li>
+        <li>server</li>
+        <li>bluetooth</li>
+        <li>airplay</li>
+        <li>mc_link</li>
+        <li>tv</li>
+        <br>Returning "0" if successful.
+    </p>
+</script>

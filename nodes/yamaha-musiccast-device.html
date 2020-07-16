@@ -1,0 +1,47 @@
+<script type="text/javascript">
+	RED.nodes.registerType("musiccast-device", {
+		category: "config",
+		color: '#57D9A0',
+		defaults: {
+			name: {value: "MusicCast Device", required: false},
+			address: {value: "", required: true},
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "music.png",
+		label: function () {
+			return this.name || "musiccast-device";
+		},
+		oneditsave() {
+			http.get("http://" + this.address + "/YamahaExtendedControl/v1/system/getDeviceInfo",
+				(resp) => {
+					this.data = '';
+
+					resp.on('data', (chunk) => {
+						this.data += chunk;
+					});
+
+					resp.on('end', () => {
+						console.log(this.data);
+						this.data = JSON.parse(data)
+					})
+
+				});
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="musiccast-device">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-address"><i class="fa fa-globe"></i> Address</label>
+        <input type="text" id="node-config-input-address" placeholder="192.168.0.5" />
+    </div>
+    <div class="form-tips">
+      <p>TIPS</p>
+    </div>
+
+</script>

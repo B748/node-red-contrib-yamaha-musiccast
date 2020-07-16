@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	RED.nodes.registerType("musiccast-sleep-timer", {
+		category: "MusicCast",
+		color: '#57D9A0',
+		defaults: {
+			device: {value: "", type: "musiccast-device", required: true},
+			name: {value: ""}
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: "music.png",
+		label: function () {
+			return this.name || "Set Sleep Timer";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="musiccast-sleep-timer">
+    <div class="form-row">
+        <label for="node-input-device"><i class="icon-globe"></i> MusicCast Device</label>
+        <input type="text" id="node-input-device">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="musiccast-sleep-timer">
+    <p>Set sleep timer in minutes. To stop sleep timer set time to "0"</p>
+</script>

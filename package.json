@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-yamaha-musiccast",
+  "version": "0.0.1",
+  "description": "Node-RED node to connect to YAMAHA Musiccast devices",
+  "keywords": [],
+  "author": "Stephan Ostmeier",
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "musiccast-device": "nodes/yamaha-musiccast-device.js",
+      "musiccast-power": "nodes/yamaha-musiccast-power.js",
+      "musiccast-volume": "nodes/yamaha-musiccast-volume.js",
+      "musiccast-mute": "nodes/yamaha-musiccast-mute.js",
+      "musiccast-now-playing": "nodes/yamaha-musiccast-now-playing.js",
+      "musiccast-source": "nodes/yamaha-musiccast-set-input.js",
+      "musiccast-features": "nodes/yamaha-musiccast-features.js",
+      "musiccast-sound-programs": "nodes/yamaha-musiccast-sound-programs.js",
+      "musiccast-get-presets": "nodes/yamaha-musiccast-presets-get.js",
+      "musiccast-play-preset": "nodes/yamaha-musiccast-preset-play.js",
+      "musiccast-sleep-timer": "nodes/yamaha-musiccast-sleep-timer.js"
+    }
+  }
+}
